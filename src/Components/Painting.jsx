@@ -1,9 +1,8 @@
 const Painting = (x) => {
-const paintings = Object.values(x)
-paintings.map((y) => (console.log(y)))
+  const paintings = Object.values(x);
+  const paintingsToMap = paintings[0];
 
-  return <div>{paintings.map((y) => (<div>({y[0]}</div>))
-  }</div>;
+  return <div>{paintingsToMap?.map((y) => <h1>{y.title}</h1>)}</div>;
 };
 
 export default Painting;
