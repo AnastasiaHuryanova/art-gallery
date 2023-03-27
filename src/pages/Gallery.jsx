@@ -1,9 +1,9 @@
-import Painting from "../Components/Painting";
 import { useEffect, useState } from "react";
 import axios from "axios";
+import PaintingList from "../Components/PaintingList";
 
 const Gallery = () => {
-  const [paintings, setPaintings] = useState();
+  const [paintings, setPaintings] = useState([]);
 
   const getPaintings = () => {
     axios.get("https://api.artic.edu/api/v1/artworks").then(res => (setPaintings(res.data.data))
@@ -17,7 +17,7 @@ const Gallery = () => {
     <div>
       <h1>gallery</h1>
       <div>
-        <Painting x={paintings} />
+        <PaintingList paintings={paintings} />
       </div>
     </div>
   );
