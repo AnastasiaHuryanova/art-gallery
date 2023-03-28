@@ -13,8 +13,7 @@ const Gallery = () => {
       setArtworks(fetchedArtworks);
     };
     loadPaintings();
-  }, [])
-  
+  }, []);
 
   const loadPaintingsByArtist = async () => {
     const config = { limit: 10 };
@@ -29,13 +28,13 @@ const Gallery = () => {
   const handleClick = (e) => {
     loadPaintingsByArtist();
     e.preventDefault();
-    setKeyword(keyword.toLowerCase())
+    setKeyword(keyword.toLowerCase());
     setKeyword("");
   };
 
   return (
     <div>
-      <h1>gallery</h1>
+      <h1>Gallery</h1>
       <input type="text" onChange={handleChange} value={keyword} />
       {console.log(keyword)}
       <button onClick={handleClick}>search</button>

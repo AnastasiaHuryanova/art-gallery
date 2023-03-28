@@ -20,12 +20,14 @@ export const searchArtworks = async ({ limit }, keyWord) => {
     );
 
     const artworkWithDetails = res.data.data;
+    console.log(artworkWithDetails)
 
     artworksWithDetails.push({
       id: artwork.id,
       title: artwork.title,
       image_id: artworkWithDetails.image_id,
-      artist_title: artworkWithDetails.artist_title
+      artist_title: artworkWithDetails.artist_title,
+      date_display: artworkWithDetails.date_display
     });
   }
   console.log(artworksWithDetails);
