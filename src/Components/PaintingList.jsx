@@ -6,7 +6,7 @@ const PaintingList = ({ paintings }) => {
           <h1>{painting?.title}</h1>
           <img
             style={{ height: 400 }}
-            src={`https://www.artic.edu/iiif/2/${painting?.imageId}/full/843,/0/default.jpg`}
+            src={`https://www.artic.edu/iiif/2/${painting?.image_id}/full/843,/0/default.jpg`}
           />
         </div>
       ))}

@@ -4,7 +4,7 @@ import { getAllArtworks, searchArtworksByArtist } from "../axios/artworks";
 
 const Gallery = () => {
   const [paintings, setPaintings] = useState([]);
-  const [artist, setArtist] = useState("monet");
+  const [artist, setArtist] = useState("");
 
   useEffect(() => {
     const loadPaintings = async () => {

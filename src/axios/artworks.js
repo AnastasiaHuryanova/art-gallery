@@ -24,7 +24,7 @@ export const searchArtworksByArtist = async ({ limit }, artist) => {
     artworksWithDetails.push({
       id: artwork.id,
       title: artwork.title,
-      imageId: artworkWithDetails.image_id,
+      image_id: artworkWithDetails.image_id,
     });
   }
   console.log(artworksWithDetails);
