@@ -1,16 +1,16 @@
 import { useEffect, useState } from "react";
-import PaintingList from "../Components/PaintingList";
-import { getAllArtworks, searchArtworksByArtist } from "../axios/artworks";
+import PaintingList from "../Components/ArtworkList";
+import { getAllArtworks, searchArtworks } from "../axios/artworks";
 
 const Gallery = () => {
-  const [paintings, setPaintings] = useState([]);
-  const [artist, setArtist] = useState("");
+  const [artworks, setArtworks] = useState([]);
+  const [keyword, setKeyword] = useState("");
 
   useEffect(() => {
     const loadPaintings = async () => {
       const config = { limit: 10 };
       const fetchedArtworks = await getAllArtworks(config);
-      setPaintings(fetchedArtworks);
+      setArtworks(fetchedArtworks);
     };
     loadPaintings();
   }, [])
@@ -18,28 +18,29 @@ const Gallery = () => {
 
   const loadPaintingsByArtist = async () => {
     const config = { limit: 10 };
-    const fetchedArtworks = await searchArtworksByArtist(config, artist);
-    setPaintings(fetchedArtworks);
+    const fetchedArtworks = await searchArtworks(config, keyword);
+    setArtworks(fetchedArtworks);
   };
 
   const handleChange = (e) => {
-    setArtist(e.target.value);
+    setKeyword(e.target.value);
   };
 
   const handleClick = (e) => {
     loadPaintingsByArtist();
     e.preventDefault();
-    setArtist("");
+    setKeyword(keyword.toLowerCase())
+    setKeyword("");
   };
 
   return (
     <div>
       <h1>gallery</h1>
-      <input type="text" onChange={handleChange} value={artist} />
-      {console.log(artist)}
+      <input type="text" onChange={handleChange} value={keyword} />
+      {console.log(keyword)}
       <button onClick={handleClick}>search</button>
       <div>
-        <PaintingList paintings={paintings} />
+        <PaintingList artworks={artworks} />
       </div>
     </div>
   );
